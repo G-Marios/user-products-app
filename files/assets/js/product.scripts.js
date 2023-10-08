@@ -54,7 +54,6 @@ function createTbody(data) {
         let cost = data[i].cost;
         let description = data[i].description;
         let quantity = data[i].quantity;
-        // console.log(username, name, surname, email);
 
         let tr_str = '<tr>' + '<td>' + product + '</td>' + '<td>' + cost + '</td>' + '<td>' + description + '</td>' + '<td>' + quantity + '</td>' + '</tr>';
         $('#userTable tbody').append(tr_str);
