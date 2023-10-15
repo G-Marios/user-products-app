@@ -9,8 +9,8 @@ exports.findAll = async (req, res) => {
         const result = await User.find();
         res.status(200).json({ status: true, data: result });
         console.log('Success in reading all users');
-        logger.info('Log Info success in reading all users');
-        logger.error('>>> Problem in reading all users');
+        // logger.info('Log Info success in reading all users');
+        // logger.error('>>> Problem in reading all users');
         // logger.log('Logger success in reading all users ');
     } catch (err) {
         res.status(400).json({ status: false, data: err });
@@ -63,16 +63,10 @@ exports.create = async (req, res) => {
     try {
         const result = await newUser.save();
         res.status(200).json({ status: true, data: result });
-        console.log(
-            'Success in inserting user with username',
-            req.body.username
-        );
+        console.log('Success in inserting user with username', req.body.username);
     } catch (err) {
         res.status(400).json({ status: false, data: err });
-        console.log(
-            'Problem in inserting user with username',
-            req.body.username
-        );
+        console.log('Problem in inserting user with username', req.body.username);
     }
 };
 
@@ -89,16 +83,9 @@ exports.update = async (req, res) => {
     };
 
     try {
-        const result = await User.findOneAndUpdate(
-            { username: username },
-            updateUser,
-            { new: true }
-        );
+        const result = await User.findOneAndUpdate({ username: username }, updateUser, { new: true });
         res.status(200).json({ status: true, data: result });
-        console.log(
-            'Success in updating user with username',
-            req.body.username
-        );
+        console.log('Success in updating user with username', req.body.username);
     } catch (err) {
         res.status(400).json({ status: false, data: err });
         console.log('Problem in updating user with username', username);
@@ -112,10 +99,7 @@ exports.delete = async (req, res) => {
     try {
         const result = await User.findOneAndDelete({ username: username });
         res.status(200).json({ status: true, data: result });
-        console.log(
-            'Success in deleting user with username',
-            req.body.username
-        );
+        console.log('Success in deleting user with username', req.body.username);
     } catch (err) {
         res.status(400).json({ status: false, data: err });
         console.log('Problem in deleting user with username', username);
